@@ -66,9 +66,9 @@ def runDPU(dpu,img):
     animal = {
         0 : 'ANNAS HUMMINGBIRD',
         1 : 'BALD EAGLE',
-        2 : 'BALD EAGLE',
+        2 : 'BARN OWL',
         3 : 'CROW',
-        4 : 'CROW',
+        4 : 'EMU',
         5 : 'GOLDEN CHEEKED WARBLER' ,
         6 : 'HOUSE SPARROW',
         7 : 'NICOBAR PIGEON' ,
