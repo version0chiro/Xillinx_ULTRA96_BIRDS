@@ -106,8 +106,8 @@ def runApp(threads, camera,model):
         
         ret,frame = cam.read()
         frame = cv2.resize(frame,(200,200))
-        greyScaleFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        inputFrame = greyScaleFrame.reshape(-1,200,200,1).astype('float32')
+        # greyScaleFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        inputFrame = frame.reshape(-1,200,200,1).astype('float32')
         inputFrame = inputFrame/255.0
         name = runDPU(all_dpu_runners[i],inputFrame)
         print(name)
@@ -135,7 +135,7 @@ def main():
     ap = argparse.ArgumentParser()
     
     ap.add_argument('-m','--model', type=str,
-                    default='/home/root/animalRecognition/xillinx_animal_detector/dpu_densenetx_0.elf'
+                    default='/home/root/Xillinx_ULTRA96_BIRDS/dpu_densenetx_0.elf'
                     )
     
     ap.add_argument('-c', '--camera',
