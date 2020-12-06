@@ -105,6 +105,7 @@ def runApp(threads, camera,model):
     while True:
         
         ret,frame = cam.read()
+        og_frame = frame.copy()
         frame = cv2.resize(frame,(200,200))
         # greyScaleFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         inputFrame = cv2.resize(frame,(200,200))# frame.reshape(-1,200,200,1).astype('float32')
@@ -112,8 +113,8 @@ def runApp(threads, camera,model):
         name = runDPU(all_dpu_runners[i],inputFrame)
         print(name)
         
-        cv2.putText(frame,name, (20,200-50), cv2.FONT_HERSHEY_SIMPLEX,1, (0, 0, 255) , 2, cv2.LINE_AA)
-        cv2.imshow('frame',frame)
+        cv2.putText(og_frame,name, (20,200-50), cv2.FONT_HERSHEY_SIMPLEX,1, (0, 0, 255) , 2, cv2.LINE_AA)
+        cv2.imshow('frame',og_frame)
         
         key = cv2.waitKey(1) & 0xFF
         
