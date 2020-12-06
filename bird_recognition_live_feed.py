@@ -47,7 +47,7 @@ def runDPU(dpu,img):
     outputData = []
     inputData = []
     outputData.append(np.empty((1,outputHeight,outputWidth,outputChannel), dtype = np.float32, order = 'C'))
-    inputData.append(np.empty((1,200,200,1), dtype = np.float32, order = 'C'))
+    inputData.append(np.empty((1,200,200,3), dtype = np.float32, order = 'C'))
     
     """ init input image to input buffer """
     imageRun = inputData[0]
@@ -107,7 +107,7 @@ def runApp(threads, camera,model):
         ret,frame = cam.read()
         frame = cv2.resize(frame,(200,200))
         # greyScaleFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        inputFrame = frame.reshape(-1,200,200,1).astype('float32')
+        inputFrame = cv2.resize(frame,(200,200))# frame.reshape(-1,200,200,1).astype('float32')
         inputFrame = inputFrame/255.0
         name = runDPU(all_dpu_runners[i],inputFrame)
         print(name)
