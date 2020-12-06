@@ -68,7 +68,7 @@ def runDPU(dpu,img):
         1 : 'BALD EAGLE',
         2 : 'BARN OWL',
         3 : 'CROW',
-        4 : 'EMU',
+        4 : 'CROW',
         5 : 'GOLDEN CHEEKED WARBLER' ,
         6 : 'HOUSE SPARROW',
         7 : 'NICOBAR PIGEON' ,
